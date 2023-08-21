@@ -16,7 +16,7 @@
       Then I received a valid HTTP response code 200
       And I received a valid page index 1
       And I received a valid limit 20 user
-      And I received a valid "user/getlistuserbypage.json"
+      And I received a valid "user/getListUserByPage.json"
 
 
     Scenario: get user list limited
