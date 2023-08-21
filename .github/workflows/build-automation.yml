@@ -32,11 +32,11 @@ jobs:
     
     # Execute Api Cucumber api
     - name: Execute Test
-      run: ./gradlew cucumberApi"
+      run: ./gradlew cucumberApi
 
     # Execute Api Cucumber web
     - name: Execute Test
-      run: ./gradlew cucumberWeb"
+      run: ./gradlew cucumberWeb
 
 
       #Archive Test Result
