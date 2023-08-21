@@ -37,9 +37,7 @@ configurations {
 }
 
 def tags1 =(findProperty('tags')==null)?'not @exluce' : findProperty('tags')+' and not @exclude'
-def tags2 =(findProperty('tags')==null)?'not @exluce' : findProperty('tags')+' and not @exclude'
-
-task cucumber() {
+task cucumberApi() {
     description("Running Cucumber Test")
     dependsOn assemble, compileTestJava
     doLast {
@@ -47,11 +45,28 @@ task cucumber() {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
-                    '--plugin', 'html:reports/index.html',
+                    '--plugin', 'html:reports/report-api.html',
                     '--plugin', 'pretty',
                     '--glue', 'com.stepdefinition',
-                    '--tags', "${tags1}",
-                    '--tags', "${tags2}",
+                    '--tags', "@api",
+                    'src/test/resources/feature'
+            ]
+        }
+    }
+}
+
+task cucumberWeb() {
+    description("Running Cucumber Test")
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = [
+                    '--plugin', 'html:reports/report-web.html',
+                    '--plugin', 'pretty',
+                    '--glue', 'com.stepdefinition',
+                    '--tags', "@web",
                     'src/test/resources/feature'
             ]
         }
