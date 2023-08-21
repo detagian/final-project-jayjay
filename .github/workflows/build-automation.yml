@@ -39,12 +39,8 @@ jobs:
       run: chmod +x gradlew
     
     # Execute Api Cucumber
-    - name: Execute Test Api
-      run: ./gradlew cucumberApi
-    
-    # Execute Api Cucumber
-    - name: Execute Test Web
-      run: ./gradlew cucumberWeb
+    - name: Execute Test
+      run: ./gradlew cucumber -Ptags1="@api" -Ptags2="@web"
 
       #Archive Test Result
     - name: Archive Test Result
