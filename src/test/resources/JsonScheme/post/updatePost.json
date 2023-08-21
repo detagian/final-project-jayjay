@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome9",
+  "definitions": {
+    "Welcome9": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "likes": {
+          "type": "integer"
+        },
+        "link": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {}
+        },
+        "text": {
+          "type": "string"
+        },
+        "publishDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "owner": {
+          "$ref": "#/definitions/Owner"
+        }
+      },
+      "required": [
+        "id",
+        "image",
+        "likes",
+        "link",
+        "owner",
+        "publishDate",
+        "tags",
+        "text",
+        "updatedDate"
+      ],
+      "title": "Welcome9"
+    },
+    "Owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "picture": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".jpg"
+          ]
+        }
+      },
+      "required": [
+        "firstName",
+        "id",
+        "lastName",
+        "picture",
+        "title"
+      ],
+      "title": "Owner"
+    }
+  }
+}

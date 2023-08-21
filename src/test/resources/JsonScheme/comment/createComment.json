@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome1",
+  "definitions": {
+    "Welcome1": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "post": {
+          "type": "string"
+        },
+        "publishDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "message",
+        "owner",
+        "post",
+        "publishDate"
+      ],
+      "title": "Welcome1"
+    },
+    "Owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "picture": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".jpg"
+          ]
+        }
+      },
+      "required": [
+        "firstName",
+        "id",
+        "lastName",
+        "picture",
+        "title"
+      ],
+      "title": "Owner"
+    }
+  }
+}

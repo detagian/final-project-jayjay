@@ -1,0 +1,19 @@
+{
+  "id": "64ddb81afd4a65069dc64c75",
+  "image": "",
+  "likes": 0,
+  "link": "",
+  "tags": [
+
+  ],
+  "text": "ini text",
+  "publishDate": "2023-08-17T06:03:06.845Z",
+  "updatedDate": "2023-08-17T06:03:06.845Z",
+  "owner": {
+    "id": "60d0fe4f5311236168a109ca",
+    "title": "ms",
+    "firstName": "Sara",
+    "lastName": "Andersen",
+    "picture": "https://randomuser.me/api/portraits/women/58.jpg"
+  }
+}

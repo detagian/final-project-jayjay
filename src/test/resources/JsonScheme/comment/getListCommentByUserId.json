@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/Welcome8",
+  "definitions": {
+    "Welcome8": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Datum"
+          }
+        },
+        "total": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "data",
+        "limit",
+        "page",
+        "total"
+      ],
+      "title": "Welcome8"
+    },
+    "Datum": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/definitions/Owner"
+        },
+        "post": {
+          "type": "string"
+        },
+        "publishDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "message",
+        "owner",
+        "post",
+        "publishDate"
+      ],
+      "title": "Datum"
+    },
+    "Owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ID"
+        },
+        "title": {
+          "$ref": "#/definitions/Title"
+        },
+        "firstName": {
+          "$ref": "#/definitions/FirstName"
+        },
+        "lastName": {
+          "$ref": "#/definitions/LastName"
+        },
+        "picture": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".jpg"
+          ]
+        }
+      },
+      "required": [
+        "firstName",
+        "id",
+        "lastName",
+        "picture",
+        "title"
+      ],
+      "title": "Owner"
+    },
+    "FirstName": {
+      "type": "string",
+      "enum": [
+        "Tomothy"
+      ],
+      "title": "FirstName"
+    },
+    "ID": {
+      "type": "string",
+      "enum": [
+        "60d0fe4f5311236168a10a27"
+      ],
+      "title": "ID"
+    },
+    "LastName": {
+      "type": "string",
+      "enum": [
+        "Hawkins"
+      ],
+      "title": "LastName"
+    },
+    "Title": {
+      "type": "string",
+      "enum": [
+        "mr"
+      ],
+      "title": "Title"
+    }
+  }
+}
