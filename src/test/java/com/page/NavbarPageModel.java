@@ -91,7 +91,8 @@ public class NavbarPageModel extends BaseModel {
         return driver.findElement(loc_btnLoginNavbar).isDisplayed();
     }
 
-    public boolean isProfileNameVisible(){
+    public boolean isProfileNameVisible() throws InterruptedException {
+        Thread.sleep(2000);
         return driver.findElement(loc_txtProfileName).isDisplayed();
     }
 

@@ -60,7 +60,7 @@ public class WebNavbarStepDefinition extends BaseModel {
     }
 
     @Then("user don't see profile name")
-    public void userDonTSeeProfileName() {
+    public void userDonTSeeProfileName() throws InterruptedException {
         assertFalse(navbarPageModel.isProfileNameVisible());
     }
 
