@@ -23,7 +23,7 @@ jobs:
     - name: Setup Chrome
       uses: browser-actions/setup-chrome@v1.2.0
       with:
-          chrome-version: '1140505'
+          chrome-version: '1140562'
 
     # get into gradlew    
     - name: Setup gradlew
