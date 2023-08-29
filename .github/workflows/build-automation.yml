@@ -22,7 +22,9 @@ jobs:
     # install browser chrome    
     - name: Setup Chrome
       uses: browser-actions/setup-chrome@v1.2.0
-      
+      with:
+          chrome-version: '114.0.5730.1'
+
     # get into gradlew    
     - name: Setup gradlew
       run: chmod +x gradlew
