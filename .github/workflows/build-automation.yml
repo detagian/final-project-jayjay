@@ -19,11 +19,10 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    # install browser chrome    
-    - name: Setup Chrome
-      uses: browser-actions/setup-chrome@v1.2.0
-      with:
-          chrome-version: '1140562'
+        
+    # install browser firefox
+    - name: Setup Firefox
+      uses: browser-actions/setup-firefox@v1.1.0
 
     # get into gradlew    
     - name: Setup gradlew

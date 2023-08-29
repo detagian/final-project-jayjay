@@ -4,7 +4,9 @@ import com.base.BaseModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.Keys;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -28,6 +30,7 @@ public class CartPageModel extends BaseModel {
 
     By loc_btnOkPopUp = By.xpath("/html/body/div[10]/div[7]/div/button");
 
+    Actions actions = new Actions(driver);
     public  CartPageModel(WebDriver driver){
         BaseModel.driver =driver;
     }
@@ -36,7 +39,7 @@ public class CartPageModel extends BaseModel {
     public void clickDeleteButton(int itemIndex) throws InterruptedException {
         explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table/tbody/tr["+itemIndex+"]/td[4]/a")));
         driver.findElement(By.xpath("//table/tbody/tr["+itemIndex+"]/td[4]/a")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
     }
 
     public void clickPlaceOrderButton(){
@@ -51,7 +54,7 @@ public class CartPageModel extends BaseModel {
 
     public void clickOkButton() throws InterruptedException {
         driver.findElement(loc_btnOkPopUp).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
     }
 
     // SET Text /Input
@@ -65,11 +68,12 @@ public class CartPageModel extends BaseModel {
     }
 
     //function
-    public boolean isCartEmpty() {
+    public boolean isCartEmpty() throws InterruptedException {
         return countRowtableProduct() <= 0;
     }
 
-    public int countRowtableProduct() {
+    public int countRowtableProduct() throws InterruptedException {
+        Thread.sleep(5000);
         List<WebElement> rows = driver.findElements(loc_tblRowProducts);
         return rows.size();
     }
@@ -84,15 +88,23 @@ public class CartPageModel extends BaseModel {
         }
     }
     //VALIDATE
-    public void validateCartIsNotEmpty() {
+    public void validateCartIsNotEmpty() throws InterruptedException {
         assertTrue(countRowtableProduct()>0);
     }
     public void validateTotalPriceIsMatch(int currentItemTotal) throws InterruptedException {
         int totalPriceInTableProduct=0;
-        Thread.sleep(5000);
+
+        Thread.sleep(2000);
         for (int i = 1; i <= currentItemTotal; i++) {
-            totalPriceInTableProduct = totalPriceInTableProduct +Integer.parseInt(driver.findElement(By.xpath("//*[@id=\"tbodyid\"]/tr["+i+"]/td[3]")).getText());
+            System.out.println("loop:"+i);
+            System.out.println("currentItemTotal:"+currentItemTotal);
+            explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"tbodyid\"]/tr["+i+"]/td[3]")));
+            String save = driver.findElement(By.xpath("//*[@id=\"tbodyid\"]/tr["+i+"]/td[3]")).getText();
+
+            System.out.println(save);
+            totalPriceInTableProduct = totalPriceInTableProduct +Integer.parseInt(save);
         }
+        System.out.println("totalPriceInTableProduct:"+totalPriceInTableProduct);
         assertEquals(totalPriceInTableProduct,Integer.parseInt(driver.findElement(loc_txtTotalPrice).getText()));
     }
 

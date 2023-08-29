@@ -20,8 +20,4 @@ public class DefaultBrowserPageModel extends BaseModel {
         assertEquals(driver.switchTo().alert().getText(),alertText);
         driver.switchTo().alert().accept();
     }
-    public void refreshPage() throws InterruptedException {
-        driver.navigate().refresh();
-        Thread.sleep(2000);
-    }
 }
