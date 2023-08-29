@@ -48,7 +48,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3.7.3
       with:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_DIR: reports  
+        PUBLISH_DIR: reports
         
       
       

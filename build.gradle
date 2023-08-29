@@ -46,6 +46,7 @@ task cucumber() {
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'html:reports/index.html',
+                    '--plugin', 'json:reports/report-api.html',
                     '--plugin', 'pretty',
                     '--glue', 'com.stepdefinition',
                     '--tags', "${tags}",
